@@ -44,7 +44,7 @@ class App extends Component {
     if (currentScore >= this.state.highScore) {
       this.setState({ highScore: currentScore })
     }
-    else if (currentScore === 12) {
+    if (currentScore === 12) {
       this.setState({ 
         msg: "You win!",
         level: "Super Saiyan Rose"
