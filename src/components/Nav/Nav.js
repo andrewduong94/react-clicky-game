@@ -11,6 +11,8 @@ const NavBar = props => (
                     <ul class="navbar-nav">
                     <li id="title">DBZ Clicky Game</li>
 
+                    <li id="level">Level: {props.level}</li>
+
                     <li id="msg">Status: {props.msg}</li>
 
                     <li id="score">Score: {props.score}</li>

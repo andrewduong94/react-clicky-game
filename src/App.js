@@ -7,7 +7,6 @@ import Row from "./components/Row";
 import Title from "./components/Title";
 import './App.css';
 
-//const App = () => <Navbar />;
 
 function randomize(array) {
   let temp = null;
@@ -23,6 +22,7 @@ function randomize(array) {
 class App extends Component {
   state = {
     characters,
+    level: "Saiyan",
     score: 0,
     highScore: 0,
     msg: "",
@@ -42,10 +42,31 @@ class App extends Component {
       msg: "Good!"
     });
     if (currentScore >= this.state.highScore) {
-      this.setState({ highScore: currentScore });
+      this.setState({ highScore: currentScore })
     }
     else if (currentScore === 12) {
-      this.setState({ msg: "You win!" });
+      this.setState({ 
+        msg: "You win!",
+        level: "Super Saiyan Rose"
+     });
+    }
+    if (currentScore === 2) {
+      this.setState({ level: "Super Saiyan" })
+    }
+    else if (currentScore === 3) {
+      this.setState({ level: "Super Saiyan 2" })
+    }
+    else if (currentScore === 4) {
+      this.setState({ level: "Super Saiyan 3" })
+    }
+    else if (currentScore === 6) {
+      this.setState({ level: "Super Saiyan 4" })
+    }
+    else if (currentScore === 8) {
+      this.setState({ level: "Super Saiyan God" })
+    }
+    else if (currentScore === 10) {
+      this.setState({ level: "Super Saiyan Blue" })
     }
     this.randomizeCharacters();
   };
@@ -55,7 +76,8 @@ class App extends Component {
       score: 0,
       highScore: this.state.highScore,
       msg: "Oops!",
-      clicked: []
+      clicked: [],
+      level: "Saiyan"
     });
     this.randomizeCharacters();
   };
@@ -76,6 +98,7 @@ render() {
       score = {this.state.score}
       highScore = {this.state.highScore}
       msg = {this.state.msg}
+      level = {this.state.level}
     />
     <Title>Click on every character without clicking on the same character twice!</Title>
     <Row>
